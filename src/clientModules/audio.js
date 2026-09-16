@@ -26,18 +26,28 @@ function resolveAudioUrl(src) {
   // Keep external / data URLs intact
   if (/^(https?:|\/\/|blob:|data:)/i.test(src)) return src;
 
-  // Strip leading /static/ or static/ because Docusaurus serves /static at root /
-  let clean = src.replace(/^\/?static\//i, '/');
+  // Dynamically fetch baseUrl (e.g. '/Languages/') set by Docusaurus
+  const baseUrl = (typeof window !== 'undefined' && window.docusaurusData?.baseUrl) || '/Languages/';
 
-  // If it targets a specific audios folder (e.g. /audios-PT/amanha.wav)
-  if (/^\/?audios?[-_a-zA-Z0-9]*\//i.test(clean)) {
-    return clean.startsWith('/') ? clean : `/${clean}`;
+  // Helper to safely prepend baseUrl without doubling slashes
+  const withBaseUrl = (path) => {
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+    return `${cleanBase}${cleanPath}`;
+  };
+
+  // Strip leading /static/ or static/ because Docusaurus serves /static at root
+  let clean = src.replace(/^\/?static\//i, '');
+
+  // If it targets a specific audios folder (e.g. audios-PT/amanha.wav)
+  if (/^audios?[-_a-zA-Z0-9]*\//i.test(clean)) {
+    return withBaseUrl(clean);
   }
 
-  // For plain filenames or Docusaurus doc-relative paths (e.g. "ma1.wav" or "/docs/tones/ma1.wav")
+  // For plain filenames or Docusaurus doc-relative paths (e.g. "ma1.wav" or "docs/tones/ma1.wav")
   // Extract just the filename and route to default Chinese /audios/
   const fileName = clean.split('/').pop();
-  return `/audios/${fileName}`;
+  return withBaseUrl(`audios/${fileName}`);
 }
 
 function playAudio(src, button) {
