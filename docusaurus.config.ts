@@ -41,17 +41,6 @@ const config: Config = {
           sidebarPath: './sidebarsChinese.ts',
           editUrl: 'https://github.com/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          editUrl: 'https://github.com/',
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -78,10 +67,19 @@ plugins: [
     require.resolve('@easyops-cn/docusaurus-search-local'),
     {
       hashed: true,
-      language: ['en', 'zh'],
+      language: ['en', 'zh', 'ru'],
       indexDocs: true,
-      indexBlog: false,
       docsRouteBasePath: ['/docs-chinese/vocabulary', '/docs-chinese/grammar'],
+    },
+  ],
+  [
+    '@docusaurus/plugin-content-docs',
+    {
+      id: 'russian',
+      path: 'docs-russian',
+      routeBasePath: 'docs-russian',
+      sidebarPath: './sidebarsRussian.ts',
+      editUrl: 'https://github.com/',
     },
   ],
 ],
@@ -114,7 +112,13 @@ plugins: [
           position: 'left',
           label: 'Brazilian Portuguese',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          type: 'docSidebar',
+          docsPluginId: 'russian',
+          sidebarId: 'russianSidebar',
+          position: 'left',
+          label: 'Russian',
+        },
         {
           href: 'https://github.com/B0end',
           label: 'GitHub',
