@@ -3,19 +3,21 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Welcome',
+  title: 'B0end Language Books',
+  tagline: 'Multi-language documentation and learning guides',
   favicon: 'img/me.png',
 
   future: {
     v4: true,
   },
 
-  url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
-
+  // GitHub Pages configuration
+  url: 'https://b0end.github.io',
+  baseUrl: '/Languages/',
   organizationName: 'B0end',
-  projectName: 'website',
+  projectName: 'Languages',
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'ignore',
   markdown: {
@@ -33,13 +35,13 @@ const config: Config = {
     [
       'classic',
       {
-        // Default instance (e.g., Chinese or default docs)
+        // Default instance (Chinese docs)
         docs: {
           id: 'default',
           path: 'docs-chinese',
           routeBasePath: 'docs-chinese',
           sidebarPath: './sidebarsChinese.ts',
-          editUrl: 'https://github.com/',
+          editUrl: 'https://github.com/B0end/Languages/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -52,37 +54,37 @@ const config: Config = {
     require.resolve('./src/clientModules/audio.js')
   ],
 
-plugins: [
-  [
-    '@docusaurus/plugin-content-docs',
-    {
-      id: 'portuguese',
-      path: 'docs-portuguese',
-      routeBasePath: 'docs-portuguese',
-      sidebarPath: './sidebarsPortuguese.ts',
-      editUrl: 'https://github.com/',
-    },
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'portuguese',
+        path: 'docs-portuguese',
+        routeBasePath: 'docs-portuguese',
+        sidebarPath: './sidebarsPortuguese.ts',
+        editUrl: 'https://github.com/B0end/Languages/tree/main/',
+      },
+    ],
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        language: ['en', 'zh', 'ru'],
+        indexDocs: true,
+        docsRouteBasePath: ['/docs-chinese/vocabulary', '/docs-chinese/grammar'],
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'russian',
+        path: 'docs-russian',
+        routeBasePath: 'docs-russian',
+        sidebarPath: './sidebarsRussian.ts',
+        editUrl: 'https://github.com/B0end/Languages/tree/main/',
+      },
+    ],
   ],
-  [
-    require.resolve('@easyops-cn/docusaurus-search-local'),
-    {
-      hashed: true,
-      language: ['en', 'zh', 'ru'],
-      indexDocs: true,
-      docsRouteBasePath: ['/docs-chinese/vocabulary', '/docs-chinese/grammar'],
-    },
-  ],
-  [
-    '@docusaurus/plugin-content-docs',
-    {
-      id: 'russian',
-      path: 'docs-russian',
-      routeBasePath: 'docs-russian',
-      sidebarPath: './sidebarsRussian.ts',
-      editUrl: 'https://github.com/',
-    },
-  ],
-],
 
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
@@ -96,7 +98,6 @@ plugins: [
         src: 'img/me.png',
       },
       items: [
-        // Omit docsPluginId or set to 'default' for the default preset instance
         {
           type: 'docSidebar',
           docsPluginId: 'default',
@@ -104,7 +105,6 @@ plugins: [
           position: 'left',
           label: 'Mandarin Chinese',
         },
-        // Target the secondary instance explicitly with docsPluginId
         {
           type: 'docSidebar',
           docsPluginId: 'portuguese',
@@ -120,7 +120,7 @@ plugins: [
           label: 'Russian',
         },
         {
-          href: 'https://github.com/B0end',
+          href: 'https://github.com/B0end/Languages',
           label: 'GitHub',
           position: 'right',
         },
