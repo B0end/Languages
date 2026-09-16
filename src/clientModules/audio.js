@@ -26,27 +26,34 @@ function resolveAudioUrl(src) {
   // Keep external / data URLs intact
   if (/^(https?:|\/\/|blob:|data:)/i.test(src)) return src;
 
-  // Dynamically fetch baseUrl (e.g. '/Languages/') set by Docusaurus
+  // Dynamically fetch baseUrl (e.g., '/Languages/' in production, '/' in dev)
   const baseUrl = (typeof window !== 'undefined' && window.docusaurusData?.baseUrl) || '/Languages/';
 
-  // Helper to safely prepend baseUrl without doubling slashes
   const withBaseUrl = (path) => {
     const cleanPath = path.startsWith('/') ? path.slice(1) : path;
     const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
     return `${cleanBase}${cleanPath}`;
   };
 
-  // Strip leading /static/ or static/ because Docusaurus serves /static at root
+  // Strip leading /static/ or static/
   let clean = src.replace(/^\/?static\//i, '');
 
-  // If it targets a specific audios folder (e.g. audios-PT/amanha.wav)
+  // If the path explicitly starts with an audio directory, use it directly
   if (/^audios?[-_a-zA-Z0-9]*\//i.test(clean)) {
     return withBaseUrl(clean);
   }
 
-  // For plain filenames or Docusaurus doc-relative paths (e.g. "ma1.wav" or "docs/tones/ma1.wav")
-  // Extract just the filename and route to default Chinese /audios/
+  // Fallback route auto-detection based on current URL path
+  const currentPath = window.location.pathname;
   const fileName = clean.split('/').pop();
+
+  if (currentPath.includes('/docs-portuguese')) {
+    return withBaseUrl(`audios-PT/${fileName}`); // Adjust 'audios-PT' to match your static folder name
+  } else if (currentPath.includes('/docs-russian')) {
+    return withBaseUrl(`audios-RU/${fileName}`); // Adjust 'audios-RU' to match your static folder name
+  }
+
+  // Default fallback for Chinese or general files
   return withBaseUrl(`audios/${fileName}`);
 }
 
