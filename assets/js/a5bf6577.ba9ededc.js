@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkchinese=self.webpackChunkchinese||[]).push([["6561"],{2420(e){e.exports=JSON.parse('{"metadata":{"permalink":"/Languages/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":0,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkchinese=self.webpackChunkchinese||[]).push([["7727"],{4049(s){s.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"russian"}')}}]);
