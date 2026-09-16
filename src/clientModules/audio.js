@@ -54,7 +54,7 @@ function resolveAudioUrl(src) {
   }
 
   // Default fallback for Chinese or general files
-  return withBaseUrl(`audios/${fileName}`);
+  return withBaseUrl(`audios-CN/${fileName}`);
 }
 
 function playAudio(src, button) {
