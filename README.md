@@ -1,43 +1,82 @@
-# Website
+# Language Learning Documentation & Digital Books
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+A structured, multi-language documentation project built with **Docusaurus**, designed to publish digital language books and learning guides. Content is written in MDX to support interactive elements, custom components, embedded audio pronunciations, and multilingual explanations (English and Spanish).
 
-## Installation
+---
 
-```bash
-npm install
+## 📚 Supported Languages
+
+The workspace includes structured modules for:
+
+* **Chinese** (`/docs-chinese`): HSK preparation, vocabulary, grammar, and foundational basics.
+* **Portuguese** (`/docs-portuguese`): Essential grammar, vocabulary, and core concepts.
+* **Russian** (`/docs-russian`): Alphabet, basics, phonetics, vowel reduction, noun genders, and present tense verbs.
+
+---
+
+## 📂 Project Structure
+
+```text
+├── docs-chinese/        # Chinese language documentation & HSK tracks
+├── docs-portuguese/     # Portuguese language guides
+├── docs-russian/        # Russian language documentation
+├── src/                 # Custom React components, pages, and CSS
+│   ├── clientModules/
+│   ├── components/
+│   ├── css/
+│   └── pages/
+├── static/              # Audio files (.wav) and static assets
+├── docusaurus.config.js # Main Docusaurus configuration
+├── sidebarsChinese.ts   # Custom sidebar for Chinese
+├── sidebarsPortuguese.ts# Custom sidebar for Portuguese
+└── sidebarsRussian.ts   # Custom sidebar for Russian
+
 ```
 
-**Note**: feel free to use the package manager of your choice.
+---
 
-## Local Development
+## 🛠️ Features
+
+* **Embedded Audio**: Audio file links (`.wav`) embedded in tables and lists for real-time pronunciation reference.
+* **Multilingual Explanations**: Explanations provided in both English and Spanish to aid dual-language learners.
+* **Custom Navigation**: Separate sidebars per language configured via TypeScript (`sidebars*.ts`).
+* **MDX Support**: Full support for React components directly inside Markdown files.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+
+Ensure you have [Node.js](https://nodejs.org/) installed on your system.
+
+### 2. Installation
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/B0end/Languages.git
+cd Languages
+npm install
+
+```
+
+### 3. Local Development
+
+Start the local development server:
 
 ```bash
 npm run start
+
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This starts a local dev server and opens a browser window. Most changes are reflected live without restarting the server.
 
-## Build
+### 4. Build
+
+Build the static content for production deployment:
 
 ```bash
 npm run build
+
 ```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
-
-```bash
-USE_SSH=true npm run deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> npm run deploy
-```
-
-If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
