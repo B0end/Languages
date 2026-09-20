@@ -1,0 +1,106 @@
+# TODO
+
+## Part 2: The 5 Remaining Cases (`📁 grammatical-cases`)
+
+For every case, use the **exact same 4-part pedagogical formula** you used for Nominative:
+
+---
+
+## 1. Accusative Case (Винительный падеж)
+*Primary questions: [Кого?;; ¿A quién? / Whom?](Kogo.wav) / [Что?;; ¿Qué? / What?](Chto.wav)*
+
+```text
+📁 01-accusative-case/
+├── 01-inanimate-nouns.mdx         # The base rule (Masc/Neut = Nominative, Fem = -у/-ю)
+├── 02-the-animate-rule.mdx        # Animate Masculine = Genitive (The big mental leap!)
+├── 03-adjectives-and-pronouns.mdx # меня, тебя, его, её / -ого, -его, -ую, -юю
+├── 04-destination-vs-location.mdx # Куда? (Accusative: в/на) vs Где? (Prepositional)
+└── 05-time-expressions.mdx        # Days of the week (в среду), duration (весь день)
+```
+* **Key Teaching Focus:** The contrast between **Inanimate** (remains like Nominative) and **Animate Masculine** (borrows endings from Genitive: *Я вижу стол* vs *Я вижу студента*).
+
+---
+
+## 2. Genitive Case (Родительный падеж)
+*Primary questions: [Кого?;; ¿De quién? / Of whom?](Kogo.wav) / [Чего?;; ¿De qué? / Of what?](Chego.wav)*
+
+```text
+📁 02-genitive-case/
+├── 01-singular-and-plural-nouns.mdx # -а/-я, -ы/-и, and the "zero-ending" plural
+├── 02-adjectives-and-pronouns.mdx   # Pronouns with euphonic 'н-' (у него, от неё)
+├── 03-possession-and-belonging.mdx  # "De": дом Антона, книга сестры
+├── 04-absence-and-negation.mdx      # "No hay": Нет времени, нет денег
+├── 05-numbers-and-counting.mdx      # The 1, 2-4, 5+ counting rule
+└── 06-essential-prepositions.mdx    # из, с, от, до, для, без, около, после
+```
+* **Key Teaching Focus:** 
+  * The counting engine: 1 + Nom. Sing., 2–4 + Gen. Sing., 5+ + Gen. Plural (*1 стол, 2 стола, 5 столов*).
+  * The existence of negative identity sentences: *У меня есть брат* (Nom) vs *У меня **нет брата*** (Gen).
+
+---
+
+## 3. Prepositional Case (Предложный падеж)
+*Primary questions: [О ком?;; ¿De quién? / About whom?](O_Kom.wav) / [О чём?;; ¿De qué? / About what?](O_Chyom.wav) / [Где?;; ¿Dónde? / Where?](Gde.wav)*
+
+```text
+📁 03-prepositional-case/
+├── 01-noun-endings.mdx            # The universal "-e" ending and "-ии" exceptions
+├── 02-adjectives-and-pronouns.mdx # обо мне, о тебе, о нём / -ом, -ем, -ой, -ей
+├── 03-location-v-vs-na.mdx        # Static location (Где?): в школе, на работе
+├── 04-topic-of-thought-o-ob.mdx   # Thinking/Speaking "About" (о/об/обо)
+└── 05-transport-and-tools.mdx     # Travel on (на поезде) & instruments (играть на гитаре)
+```
+* **Key Teaching Focus:** This is the easiest case in terms of endings (almost everything ends in **-е** in the singular), making it a great confidence booster after Accusative and Genitive.
+
+---
+
+## 4. Dative Case (Дательный падеж)
+*Primary questions: [Кому?;; ¿A quién? / To whom?](Komu.wav) / [Чему?;; ¿A qué? / To what?](Chemu.wav)*
+
+```text
+📁 04-dative-case/
+├── 01-noun-endings.mdx            # Masc/Neut -у/-ю, Fem -е/-и, Plural -ам/-ям
+├── 02-adjectives-and-pronouns.mdx # мне, тебе, ему, ей, нам, вам, им
+├── 03-indirect-object.mdx         # Giving/Sending/Calling: дать другу, звонить маме
+├── 04-age-expressions.mdx         # "To me is X years": Мне 25 лет
+├── 05-impersonal-and-feelings.mdx # Мне нравится, мне нужно, мне холодно
+└── 06-prepositions-k-and-po.mdx   # Motion toward (к врачу) & distribution (по улице)
+```
+* **Key Teaching Focus:** The Spanish parallel with indirect pronouns (*me / te / le*) works wonders here. *Мне нравится книга* is structurally identical to Spanish *"Me gusta el libro"*.
+
+---
+
+## 5. Instrumental Case (Творительный падеж)
+*Primary questions: [Кем?;; ¿Por/Con quién? / By/With whom?](Kem.wav) / [Чем?;; ¿Con qué? / With what?](Chem.wav)*
+
+```text
+📁 05-instrumental-case/
+├── 01-noun-endings.mdx            # Masc -ом/-ем, Fem -ой/-ей, Plural -ами/-ями
+├── 02-adjectives-and-pronouns.mdx # со мной, с тобой, с ним, с ней
+├── 03-company-with-s-so.mdx       # With whom: чай с лимоном, гулять с другом
+├── 04-instruments-and-tools.mdx   # Doing actions with tools (no prep): писать ручкой
+├── 05-professions-and-roles.mdx   # Быть / Работать + Instrumental: Он был врачом
+└── 06-spatial-prepositions.mdx    # под (under), над (above), перед (in front), за (behind)
+```
+* **Key Teaching Focus:** Distinguishing between **С + Instrumental** (accompanied by: *кофе с молоком*) and **Bare Instrumental without preposition** (the physical tool used to do something: *есть ложкой* / comer con cuchara).
+
+---
+
+# The Resulting Sidebar Structure (`sidebars.ts`)
+
+With this roadmap, your entire documentation maps into 4 balanced top-level folders:
+
+```text
+📚 docs-russian/
+├── 📁 01-basics/             (Alphabet, Phonetics, Vowel Reduction)
+├── 📁 02-nominative-case/    (Your completed 7-card setup)
+├── 📁 03-verbs-and-tenses/   (8 focused pages: Matrix, Conjugations, Past, Future, etc.)
+└── 📁 04-grammatical-cases/  (5 sub-folders, each containing 5–6 focused pages)
+    ├── 📁 accusative/
+    ├── 📁 genitive/
+    ├── 📁 prepositional/
+    ├── 📁 dative/
+    └── 📁 instrumental/
+```
+
+This keeps individual documents concise, ensures every card in Docusaurus answers a single specific question, and prevents the "wall of grammar text" problem common in standard textbooks.
