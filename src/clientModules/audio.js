@@ -50,9 +50,10 @@ function resolveAudioUrl(src) {
   if (currentPath.includes('/docs-portuguese')) {
     return withBaseUrl(`audios-PT/${fileName}`); // Adjust 'audios-PT' to match your static folder name
   } else if (currentPath.includes('/docs-russian')) {
-    return withBaseUrl(`audios-RU/${fileName}`); // Adjust 'audios-RU' to match your static folder name
+    return withBaseUrl(`audios-RU/${fileName}`);
+  } else if (currentPath.includes('/docs-french')) {
+    return withBaseUrl(`audios-FR/${fileName}`);
   }
-
   // Default fallback for Chinese or general files
   return withBaseUrl(`audios-CN/${fileName}`);
 }

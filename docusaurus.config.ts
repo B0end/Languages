@@ -69,7 +69,7 @@ const config: Config = {
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
         hashed: true,
-        language: ['en', 'zh', 'ru'],
+        language: ['en', 'zh', 'ru', 'fr'],
         indexDocs: true,
         docsRouteBasePath: ['/docs-chinese/vocabulary', '/docs-chinese/grammar'],
       },
@@ -81,6 +81,16 @@ const config: Config = {
         path: 'docs-russian',
         routeBasePath: 'docs-russian',
         sidebarPath: './sidebarsRussian.ts',
+        editUrl: 'https://github.com/B0end/Languages/tree/main/',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'french',
+        path: 'docs-french',
+        routeBasePath: 'docs-french',
+        sidebarPath: './sidebarsFrench.ts',
         editUrl: 'https://github.com/B0end/Languages/tree/main/',
       },
     ],
@@ -118,6 +128,13 @@ const config: Config = {
           sidebarId: 'russianSidebar',
           position: 'left',
           label: 'Russian',
+        },
+        {
+          type: 'docSidebar',
+          docsPluginId: 'french',
+          sidebarId: 'frenchSidebar',
+          position: 'left',
+          label: 'French',
         },
         {
           href: 'https://github.com/B0end/Languages',
