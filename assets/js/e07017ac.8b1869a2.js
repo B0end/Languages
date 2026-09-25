@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkchinese=self.webpackChunkchinese||[]).push([["3410"],{682(e){e.exports=JSON.parse('{"categoryGeneratedIndex":{"title":"Basics","slug":"/category/basics","permalink":"/Languages/docs-french/category/basics","sidebar":"frenchSidebar","navigation":{"next":{"title":"Phonetics","permalink":"/Languages/docs-french/basics/phonetics"}}}}')}}]);
